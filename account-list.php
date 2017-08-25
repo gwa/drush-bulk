@@ -1,11 +1,7 @@
-#!/usr/local/bin/php
 <?php
 /**
  * Outputs all users for each site.
  */
-
-require_once __DIR__ . '/incl/functions.php';
-require_once __DIR__ . '/config/aliases.php';
 
 function extractUserData($output, $alias) {
     $user_data = [];
@@ -49,7 +45,7 @@ function formatUserLine($data) {
     return $line;
 }
 
-foreach ($aliases as $alias) {
+foreach ($target_aliases as $alias) {
     $cmd = sprintf('drush %s sqlq "select uid, mail, status from users_field_data"', $alias);
     $output = execCommandAndReturnArray($cmd);
 
@@ -57,5 +53,3 @@ foreach ($aliases as $alias) {
 
     outputForAlias($output, $alias);
 }
-
-exit(0);

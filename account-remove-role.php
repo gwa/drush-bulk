@@ -1,24 +1,18 @@
-#!/usr/local/bin/php
 <?php
 /**
  * Removes role(s) for a user.
  */
 
-if ($argc !== 3) {
+if ($argc !== 5) {
     echo 'Usage: account-remove-role.php [role] [email]';
     exit(0);
 }
 
-$role = $argv[1];
-$email = $argv[2];
+$role = $argv[3];
+$email = $argv[4];
 
-require_once __DIR__ . '/incl/functions.php';
-require_once __DIR__ . '/config/aliases.php';
-
-foreach ($aliases as $alias) {
+foreach ($target_aliases as $alias) {
     $cmd = sprintf('drush %s urrol %s %s', $alias, $role, $email);
     $output = execCommand($cmd);
     outputForAlias($output, $alias);
 }
-
-exit(0);

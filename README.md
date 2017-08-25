@@ -14,9 +14,9 @@ A collection of bulk drush operations.
 
 ## Run a task
 
-The following will rebuild the cache on all aliases listed in `config/aliases.php`:
+The following will rebuild the cache on all aliases in the `my-group` group listed in `config/aliases.php`:
 
 ```bash
-php -f ./cache-rebuild.php
+php -f index.php my-group cache-rebuild
 ```
 

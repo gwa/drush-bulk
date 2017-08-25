@@ -3,7 +3,8 @@
 /**
  * Execute command and return output.
  *
- * @param  string $cmd The command
+ * @param string $cmd The command
+ *
  * @return string The output
  */
 function execCommand($cmd) {
@@ -13,7 +14,7 @@ function execCommand($cmd) {
 /**
  * Execute command and return output.
  *
- * @param  string $cmd The command
+ * @param string $cmd The command
  * @return array The output
  */
 function execCommandAndReturnArray($cmd) {
@@ -26,8 +27,8 @@ function execCommandAndReturnArray($cmd) {
 /**
  * Outputs formatted output for an alias.
  *
- * @param  string $output The output
- * @param  string $alias The alias
+ * @param string $output The output
+ * @param string $alias  The alias
  */
 function outputForAlias($output, $alias) {
     echo colorize('========') . PHP_EOL;
@@ -40,6 +41,7 @@ function outputForAlias($output, $alias) {
 /**
  * @param string $email
  * @param string $alias
+ *
  * @return array
  */
 function getRolesForUser($email, $alias) {

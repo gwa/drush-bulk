@@ -1,24 +1,18 @@
-#!/usr/local/bin/php
 <?php
 /**
- * Outputs a named drupal configuration for every site alias.
- * Drush command: config-list cli
+ * Outputs user info for every site alias.
+ * Drush command: uinf
  */
 
-if ($argc !== 2) {
-    echo 'Usage: account-check.php [email]';
+if ($argc !== 4) {
+    echo 'Usage: [group] account-check [email]';
     exit(0);
 }
 
-$email = $argv[1];
+$email = $argv[3];
 
-require_once __DIR__ . '/incl/functions.php';
-require_once __DIR__ . '/config/aliases.php';
-
-foreach ($aliases as $alias) {
+foreach ($target_aliases as $alias) {
     $cmd = sprintf('drush %s uinf %s', $alias, $email);
     $output = execCommand($cmd);
     outputForAlias($output, $alias);
 }
-
-exit(0);

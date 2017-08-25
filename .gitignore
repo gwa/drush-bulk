@@ -1,1 +1,2 @@
-config/aliases.php
+config/*
+!config/aliases.example.php
